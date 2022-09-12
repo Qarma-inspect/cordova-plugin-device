@@ -38,7 +38,7 @@ function Device () {
     this.available = false;
     this.platform = null;
     this.version = null;
-    this.uuid = null;
+    // this.uuid = null;
     this.cordova = null;
     this.model = null;
     this.manufacturer = null;
@@ -58,7 +58,7 @@ function Device () {
             me.available = true;
             me.platform = info.platform;
             me.version = info.version;
-            me.uuid = info.uuid;
+            // me.uuid = info.uuid;
             me.cordova = buildLabel;
             me.model = info.model;
             me.isVirtual = info.isVirtual;

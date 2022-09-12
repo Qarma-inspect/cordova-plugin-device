@@ -58,7 +58,7 @@ public class Device extends CordovaPlugin {
      */
     public void initialize(CordovaInterface cordova, CordovaWebView webView) {
         super.initialize(cordova, webView);
-        Device.uuid = getUuid();
+        // Device.uuid = getUuid();
     }
 
     /**
@@ -72,7 +72,7 @@ public class Device extends CordovaPlugin {
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         if ("getDeviceInfo".equals(action)) {
             JSONObject r = new JSONObject();
-            r.put("uuid", Device.uuid);
+            // r.put("uuid", Device.uuid);
             r.put("version", this.getOSVersion());
             r.put("platform", this.getPlatform());
             r.put("model", this.getModel());
@@ -111,13 +111,13 @@ public class Device extends CordovaPlugin {
 
     /**
      * Get the device's Universally Unique Identifier (UUID).
-     *
+     * Avoid fetching ANDROID_ID for privacy issue
      * @return
      */
-    public String getUuid() {
-        String uuid = Settings.Secure.getString(this.cordova.getActivity().getContentResolver(), android.provider.Settings.Secure.ANDROID_ID);
-        return uuid;
-    }
+    // public String getUuid() {
+    //     String uuid = Settings.Secure.getString(this.cordova.getActivity().getContentResolver(), android.provider.Settings.Secure.ANDROID_ID);
+    //     return uuid;
+    // }
 
     public String getModel() {
         String model = android.os.Build.MODEL;
